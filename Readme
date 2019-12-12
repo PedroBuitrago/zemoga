@@ -3,26 +3,36 @@ Proyecto basado en springboot que cuenta con dos interfaces, una web y otra REST
 
 Instrucciones para Ejecución
 
-1. Descargue el proyecto
-2. Por medio de maven ejecutar un clean & install
-3. Ejecute la clase com.zemoga.devtesting.portfolio.PortfolioApplication
+1. Descargue el proyecto ( download de los archivos o la opción git clone )
+2. Por medio de maven ejecutar un clean & install ( sobre el directorio portfolio y desde una línea de comandos ejecute mvn clean install). 
+* Es importante tener en cuenta que en este punto es necesario tener configurao un MVN_HOME en su ambiente
+3. Ejecute la aplicación desde la línea de comandos así:
+
+cd ../portfolio/target/
+java -jar portfolio-0.0.1-SNAPSHOT.war
 
 Esta aplicación está basada en springboot de tal manera que no es necesario hacer ninguna configuración en servidores externos, la aplicación subirá un servidor Tomcat.
 
 Instrucciones para visualziación Web
 4. Una vez la aplicación corra, abra un navegador (preferiblemente chrome) con el URL http://localhost:8080/
 5. Haga clic en el url "here", esta acción le presentará todos los perfiles que se encuentran almacenados en la base de datos referenciada
+https://drive.google.com/file/d/1OsDfOTkDP2l0rMjZqCWyL_SkxPnaPEg3/view?usp=sharing
 6. Escoja cualquiera de las filas haciendo clic en el URL del ID
+https://drive.google.com/file/d/1LuyIQQVWERXBirY9BDVV2FmxHYexmVi_/view?usp=sharing
 7. Visualice el portafolio del perfil seleccionado
+https://drive.google.com/file/d/1l0y53l3WjOhyzI0lHBUmjTIC2kDF9_kP/view
 
 Instrucciones para interacción API Rest
 
 GET INFO
 8. Por medio del cliente REST de su predilección, configure un request HTTP GET con el URL http://localhost:8080/zemoga_portfolio_api/userinfo/<ID> donde el ID corresponde al identificador idportfolio de la base de datos de referencia, por ejemplo http://localhost:8080/zemoga_portfolio_api/userinfo/10
-  
+ 
 La respuesta será sera un JSON como el siguiente:
 
 {"id":10,"imageURL":"https://www.eltiempo.com/files/article_main/uploads/2019/06/12/5d01078005da1.jpeg","title":"Chris Froome","description":"The best cyclist of the history of course","twitter":"chrisfroome","tweets":null}
+https://drive.google.com/file/d/1OFO_GZ2K3oNgpOCPNV0Os7tnO7ejqSGe/view?usp=sharing
+https://drive.google.com/file/d/1_sqUxaA8EAZ_xM0bH8XZcjFOIvJdw_TA/view?usp=sharing
+
 
 SET INFO
 9. Para guardar información, nuevamente utilice el cliente REST de su predilección, configure un request HTTP POST con el siugiente URL
@@ -36,12 +46,16 @@ http://localhost:8080/zemoga_portfolio_api/modify_user_info/<ID> donde el ID cor
   "description":"Esta es una description"
 }
 
+https://drive.google.com/file/d/16JI_eyy5v6hLwapQYJ7vcR529iPoVJmc/view?usp=sharing
+https://drive.google.com/file/d/10rq0kh7XnDTL8ycoN-K3m8EeG0nOpLMi/view
+
+
 Es importante anotar, que la variable name será mapeada al campo title en la tabla portfolio de la base de datos de referencia
 
 
 Evidencias:
 
-<img src="https://drive.google.com/file/d/1OsDfOTkDP2l0rMjZqCWyL_SkxPnaPEg3/view?usp=sharing"/>
+https://drive.google.com/file/d/1OsDfOTkDP2l0rMjZqCWyL_SkxPnaPEg3/view?usp=sharing
 https://drive.google.com/file/d/1LuyIQQVWERXBirY9BDVV2FmxHYexmVi_/view?usp=sharing
 https://drive.google.com/file/d/1l0y53l3WjOhyzI0lHBUmjTIC2kDF9_kP/view?usp=sharing
 https://drive.google.com/file/d/16JI_eyy5v6hLwapQYJ7vcR529iPoVJmc/view?usp=sharing
