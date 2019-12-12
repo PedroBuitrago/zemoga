@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,10 +31,11 @@ class PortfolioApplicationTests {
 		
 	}
 	
-	public Integer id = null;
+	public static Integer id;
 	
 	@Test
-	void getAllPortfolios() {
+	@Order(1)
+	void test1() {
 		
 		Iterable<Portfolio> it = controller.findAll();
 		//Prueba tribual obtención de todos los registros				
@@ -40,22 +43,43 @@ class PortfolioApplicationTests {
 	}
 	
 	@Test
-	void createData() {
+	@Order(2)
+	void test2() {
 		Portfolio p = new Portfolio();
 		p.setDescription("Testing Desc");
 		p.setTitle("Testing Name");
 		p.setTwitter("pbuitrag");
 		p = portfolioService.save(p);
 		id = p.getId();
+		System.out.println("##########################");
+		System.out.println("Nuevo id: " + id);
+		System.out.println("##########################");
+		
 		assertNotEquals(p.getId(), null);
 		
 	}
 	
 	@Test
-	void getData() {
+	@Order(3)
+	void test3() {
+		System.out.println("##########################");
+		System.out.println("##########################");
+		System.out.println(id);
+		System.out.println("##########################");
+		System.out.println("##########################");
 		Optional<Portfolio> p = portfolioService.findById(id);
 		assertTrue(p.isPresent());
 	}
 
+	@Test
+	@Order(4)
+	void test4() {
+		System.out.println("##########################");
+		System.out.println("##########################");
+		System.out.println(id);
+		System.out.println("##########################");
+		System.out.println("##########################");
+		portfolioService.deleteById(id);
+		assertEquals(true, true);
+	}
 }
-
