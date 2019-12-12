@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Page Title</title>
+<style>
+body {
+  background-color: yellow;
+  text-align: center;
+  color: black;
+}
+</style>
+</head>
+<body>
+
+<h1>Portfolio <span th:utext="${ref.title}"/></span></h1>
+<p><span th:utext="${ref.description}"/></span></p>
+<img th:src="@{${ref.imageURL}}" alt="Avatar" style="width:200px">
+
+<table>
+    <thead>
+        <tr>
+        	<th> Fecha </th>
+            <th> Usuario </th>
+            <th> Tweet </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${ref.tweets.empty}">
+            <td colspan="2"> No hay tweets </td>
+        </tr>
+        <tr th:each="tweet : ${ref.tweets}">
+            <td><span th:text="${tweet.createdAt}"> Usuario </span></td>
+            <td><span th:text="${tweet.fromUser}"> Fecha </span></td>
+            <td><span th:text="${tweet.text}"> Tweet </span></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

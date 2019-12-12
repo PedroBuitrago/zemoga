@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Portafolio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+  <thead>
+    <tr>
+      <th th:text="Id">Id</th>
+      <th th:text="Nombre">Nombre</th>
+      <th th:text="Twitter">Twitter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="user: ${users}">
+      <td><a th:href="@{'/viewportfolio/?id=' + ${user.id}}"><span th:utext="${user.id}"/></span></a></td>
+      <td th:text="${user.title}">Nombre</td>
+      <td th:text="${user.twitter}">Twitter</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
