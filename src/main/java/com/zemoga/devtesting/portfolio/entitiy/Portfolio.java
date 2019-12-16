@@ -22,12 +22,12 @@ public class Portfolio {
 	@SequenceGenerator(name="seq", sequenceName = "hibernate_sequence", allocationSize=50)
 	@Column(name = "idportfolio", updatable = false, nullable = false)
 	private Integer id;
-	
+	@Column(name="image_url")
 	private String imageURL;
 	private String title;
 	private String description;
 	
-	@Column(name="twitterUserName")
+	@Column(name="twitter_user_name")
 	private String twitter;
 	
 	@Transient
