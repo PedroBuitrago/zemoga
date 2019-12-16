@@ -1,4 +1,7 @@
 # springbootsimple
+2019-12-16: Ante cambios en la tabla zemoga_test_db.portfolio, fué necesario modificar la clase Portfolio.java para que 
+mapeara los campos imageUrl y twitterUsername con el símbolo "_".
+
 Proyecto basado en springboot que cuenta con dos interfaces, una web y otra REST. La interface web permite listar usuarios de una base de datos y obtener los ultimos tweets. La interface REST permite obtener la info de un usuario y actualizarlo.
 
 Instrucciones para Ejecución
